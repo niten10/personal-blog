@@ -99,6 +99,7 @@ export default function Home() {
           </div>
         </section>
         {/* <PricingSection /> */}
+
         <motion.section
           initial={{ opacity: 0, y: -200 }} // Start off-screen above
           animate={{
@@ -138,12 +139,20 @@ export default function Home() {
             <Image src={Coverpp} width={400} height={500} alt="cover picture" />
           </div>
         </motion.section>
+
         <motion.section
           className="container mx-auto px-4 py-16"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
+          <motion.h1 className="flex justify-center space-x-6 mb-12">
+            <a href="/resume.pdf" download="niten-chhetri-cv">
+              <Button className="w-80 bg-red-600 hover:bg-red-500">
+                Download My Curriculum Vitae (CV)
+              </Button>
+            </a>
+          </motion.h1>
           <motion.h2
             className="text-3xl font-bold mb-8 text-center"
             variants={itemVariants}

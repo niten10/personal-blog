@@ -63,8 +63,10 @@ export default function AboutPage() {
           Passionate developer crafting digital experiences with code and
           creativity.
         </motion.p>
-        <motion.div variants={itemVariants}>
-          <Button size="lg">View Projects</Button>
+        <motion.div>
+          <a href="/resume.pdf" download="niten-chhetri-cv">
+            <Button className="w-52">Download My CV</Button>
+          </a>
         </motion.div>
       </motion.section>
 
