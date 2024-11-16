@@ -1,4 +1,4 @@
-import React from "react";
+import { notFound } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -10,38 +10,53 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
 
-let blogs = [];
+// `generateStaticParams` to dynamically generate paths based on the available markdown files
+export async function generateStaticParams() {
+  const contentDirectory = path.join(process.cwd(), "content");
+  const fileNames = fs.readdirSync(contentDirectory);
 
-try {
-  const dirContent = fs.readdirSync("content", "utf-8");
-  blogs = dirContent.map((file) => {
-    const fileContent = fs.readFileSync(`content/${file}`, "utf-8");
-    const { data } = matter(fileContent);
-    return data;
-  });
-} catch (error) {
-  if (error.code === "ENOENT") {
-    console.error("The 'content' directory does not exist.");
-  } else {
-    console.error(
-      "An error occurred while reading the 'content' directory:",
-      error
-    );
-  }
+  // Generate dynamic routes based on the filenames (excluding file extension)
+  const paths = fileNames.map((fileName) => ({
+    slug: fileName.replace(".md", ""),
+  }));
+
+  return paths;
 }
 
-const page = () => {
+const Page = async () => {
+  const contentDirectory = path.join(process.cwd(), "content");
+  let blogs = [];
+
+  try {
+    // Read all files in the content directory
+    const dirContent = fs.readdirSync(contentDirectory);
+
+    // Read each file, parse the front matter, and extract data
+    blogs = dirContent.map((file) => {
+      const filePath = path.join(contentDirectory, file);
+      const fileContent = fs.readFileSync(filePath, "utf-8");
+      const { data } = matter(fileContent);
+      return {
+        ...data,
+        slug: file.replace(".md", ""), // Removing file extension for slug
+      };
+    });
+  } catch (error) {
+    console.error("Error reading content directory:", error);
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8 text-center">Our Blog</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogs.map((blog) => (
-          <Card key={blog.id} className="flex flex-col overflow-hidden">
+          <Card key={blog.slug} className="flex flex-col overflow-hidden">
             <CardHeader className="p-0">
               <Image
-                src={blog.image}
+                src={blog.image || "/default-image.jpg"} // Provide default image if none exists
                 alt={blog.title}
                 width={200}
                 height={200}
@@ -70,4 +85,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

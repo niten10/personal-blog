@@ -2,19 +2,16 @@
 title: Java Programming Advantages
 description: This is the Advantages of Java Programming
 slug: java-programming-advantages
-date: 3/3/2024
-author: Niten Chhetri
-image: ""
+date: 3/3/2025
+author: Niten Chhetrii
+image: "/java.jpeg"
 ---
 
 Java is a popular programming language that offers several advantages:
 
 <!-- ```c showLineNumbers {3} /printf/ -->
 
-![Java Logo](/pp.png)
-
 1. **Platform Independence**: Java code can run on any device that has the [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_Virtual_Machine) (JVM). This is often referred to as "write once, run anywhere" (WORA). Example: `public class HelloWorld { public static void main(String[] args) { System.out.println("Hello, World!"); } }`
-
 2. **Object-Oriented**: Java is an object-oriented programming (OOP) language, which means it uses objects and classes to structure the code. This makes it easier to manage and maintain. Example: `class Dog { String breed; int age; void bark() { System.out.println("Woof!"); } }`
 
 3. **Robust and Secure**: Java has strong memory management, exception handling, and security features. Example: `try { int data = 50 / 0; } catch (ArithmeticException e) { System.out.println(e); }`

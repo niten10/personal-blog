@@ -4,7 +4,7 @@ description: This is the basic possible way to understand the react js framework
 slug: react-basic-js
 date: 9/12/2024
 author: Niten Chhetrii
-image: ""
+image: "/react.js-img.png"
 ---
 
 # Introduction
