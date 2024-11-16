@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Github, Linkedin, Twitter, Instagram, Download } from "lucide-react";
+
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import ReactLogo from "../image/pp.png";
 export default function AboutPage() {
@@ -63,9 +64,11 @@ export default function AboutPage() {
           Passionate developer crafting digital experiences with code and
           creativity.
         </motion.p>
-        <motion.div>
+        <motion.div className="flex justify-center space-x-6 mb-12">
           <a href="/resume.pdf" download="niten-chhetri-cv">
-            <Button className="w-52">Download My CV</Button>
+            <Button className="w-80 bg-red-600 hover:bg-red-500">
+              {<Download className="mr-3" />} Download My Curriculum Vitae (CV)
+            </Button>
           </a>
         </motion.div>
       </motion.section>

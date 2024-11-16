@@ -10,7 +10,7 @@ import PricingSection from "@/components/Pricing";
 import TopBlogs from "@/components/Topblogs";
 import Coverpp from "../app/image/fullcover-pp.jpg";
 import Typed from "typed.js";
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Github, Linkedin, Twitter, Instagram, Download } from "lucide-react";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -149,7 +149,8 @@ export default function Home() {
           <motion.h1 className="flex justify-center space-x-6 mb-12">
             <a href="/resume.pdf" download="niten-chhetri-cv">
               <Button className="w-80 bg-red-600 hover:bg-red-500">
-                Download My Curriculum Vitae (CV)
+                {<Download className="mr-3" />} Download My Curriculum Vitae
+                (CV)
               </Button>
             </a>
           </motion.h1>
