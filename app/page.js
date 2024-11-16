@@ -91,15 +91,15 @@ export default function Home() {
             <Link href="/about"></Link>
             <h1 className="text-xl font-bold mb-4">About Me </h1>
             <p className="w-2/3 ">
-              <span className="text-orange-600">Namaste</span> , I'm Niten
-              Pandit Chhetri, a Information Management undergraduate with a
-              passion for web development and digital marketing. I’ve gained
-              hands-on experience building projects like an eCommerce website
-              and a personal blog, focusing on creating seamless user
+              <span className="text-orange-600">Namaste</span>, I&apos;m Niten
+              Pandit Chhetri, an Information Management undergraduate with a
+              passion for web development and digital marketing. I&rsquo;ve
+              gained hands-on experience building projects like an eCommerce
+              website and a personal blog, focusing on creating seamless user
               experiences with technologies like the MERN stack, React, and
-              Next.js. I’m particularly interested in digital marketing
+              Next.js. I&rsquo;m particularly interested in digital marketing
               strategies such as SEO, content marketing, and social media
-              marketing.{" "}
+              marketing.
               <span className="bg-blue-500">
                 I believe combining web development with digital marketing can
                 create
