@@ -57,7 +57,7 @@ const Navbar = () => {
           <Link href="/contact" className="hover:scale-20 hover:font-bold">
             Contact
           </Link>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <Button variant="outline" className="mx-1">
               Login
             </Button>
@@ -65,7 +65,7 @@ const Navbar = () => {
               Signup
             </Button>
             <ModeToggle />
-          </div>
+          </div> */}
         </div>
         <div className="md:hidden">
           <Sheet>
