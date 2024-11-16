@@ -10,9 +10,33 @@ import PricingSection from "@/components/Pricing";
 import TopBlogs from "@/components/Topblogs";
 import Coverpp from "../app/image/fullcover-pp.jpg";
 import Typed from "typed.js";
+import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useState } from "react";
 export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  };
   const el = useRef("");
   const [scrollY, setScrollY] = useState(0);
 
@@ -113,6 +137,54 @@ export default function Home() {
           <div className="mt-4 sm:mt-0">
             <Image src={Coverpp} width={400} height={500} alt="cover picture" />
           </div>
+        </motion.section>
+        <motion.section
+          className="container mx-auto px-4 py-16"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.h2
+            className="text-3xl font-bold mb-8 text-center"
+            variants={itemVariants}
+          >
+            Connect With Me
+          </motion.h2>
+          <motion.div
+            className="flex justify-center space-x-6 mb-12"
+            variants={containerVariants}
+          >
+            <motion.a
+              href="https://github.com/niten10"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={itemVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-8 h-8" />
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/niten-chhetri-7670a9253/"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={itemVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Linkedin className="w-8 h-8" />
+            </motion.a>
+            <motion.a
+              href="https://www.instagram.com/niten.exe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={itemVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <InstagramLogoIcon className="w-8 h-8" />
+            </motion.a>
+          </motion.div>
         </motion.section>
         {/* <TopBlogs /> */}
         <section className="w-full py-12 md:py-24 lg:py-32">

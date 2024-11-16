@@ -117,7 +117,7 @@ const Navbar = () => {
                     <Link href="/">Home</Link>
                     <Link href="/about">About</Link>
                     <Link href="/blog">Blog</Link>
-                    <Link href="/contact">Contact</Link>
+                    {/* <Link href="/contact">Contact</Link>
                     <div>
                       <Button
                         variant="link"
@@ -129,7 +129,7 @@ const Navbar = () => {
                       <Button variant="link" size="small" className="mx-1">
                         Signup
                       </Button>
-                    </div>
+                    </div> */}
                   </div>
                 </SheetDescription>
               </SheetHeader>
