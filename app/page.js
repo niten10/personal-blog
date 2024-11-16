@@ -87,10 +87,10 @@ export default function Home() {
           }}
           className="w-full flex"
         >
-          <div className="w-1/2 flex flex-col ml-20 ">
+          <div className="w-full sm:w-1/2 flex flex-col ml-4 sm:ml-20">
             <Link href="/about"></Link>
-            <h1 className="text-xl font-bold mb-4">About Me </h1>
-            <p className="w-2/3 ">
+            <h1 className="text-xl font-bold mb-4">About Me</h1>
+            <p className="w-full sm:w-2/3">
               <span className="text-orange-600">Namaste</span>, I&apos;m Niten
               Pandit Chhetri, an Information Management undergraduate with a
               passion for web development and digital marketing. I&rsquo;ve
@@ -110,7 +110,7 @@ export default function Home() {
               Learn More
             </Link>
           </div>
-          <div>
+          <div className="mt-4 sm:mt-0">
             <Image src={Coverpp} width={400} height={500} alt="cover picture" />
           </div>
         </motion.section>
