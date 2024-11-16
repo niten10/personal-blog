@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
-import react from "../image/pp.png";
+import ReactLogo from "../image/pp.png";
 export default function AboutPage() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,10 +30,15 @@ export default function AboutPage() {
   };
 
   const skills = [
-    { name: "React", logo: { react } },
-    { name: "HTML", logo: "/placeholder.svg" },
-    { name: "Next.js", logo: "/placeholder.svg" },
+    { name: "React JS", logo: { ReactLogo } },
+    { name: "HTML", logo: "" },
+    { name: "Next JS", logo: "/placeholder.svg" },
     { name: "Figma", logo: "/placeholder.svg" },
+    { name: "Mern Stack", logo: "/placeholder.svg" },
+    { name: "Tailwind Css", logo: "/placeholder.svg" },
+    { name: "SEO", logo: "/placeholder.svg" },
+    { name: "Content Creation", logo: "/placeholder.svg" },
+
     // Add more skills as needed
   ];
 
@@ -90,7 +95,7 @@ export default function AboutPage() {
             <Github className="w-8 h-8" />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/niten-chhetrii-7670a9253/"
+            href="https://www.linkedin.com/in/niten-chhetri-7670a9253/"
             target="_blank"
             rel="noopener noreferrer"
             variants={itemVariants}
@@ -100,7 +105,7 @@ export default function AboutPage() {
             <Linkedin className="w-8 h-8" />
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.instagram.com/niten.exe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             target="_blank"
             rel="noopener noreferrer"
             variants={itemVariants}
@@ -108,16 +113,6 @@ export default function AboutPage() {
             whileTap={{ scale: 0.95 }}
           >
             <InstagramLogoIcon className="w-8 h-8" />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={itemVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Twitter className="w-8 h-8" />
           </motion.a>
         </motion.div>
 
@@ -137,14 +132,16 @@ export default function AboutPage() {
               className="flex flex-col items-center"
               variants={itemVariants}
             >
-              <Image
-                src={skill.logo}
-                alt={skill.name}
+              {/* <Image
+                src={""}
+                alt={""}
                 width={64}
                 height={64}
                 className="mb-2"
-              />
-              <span className="text-lg font-semibold">{skill.name}</span>
+              /> */}
+              <span className="text-lg font-semibold hover:text-orange-600">
+                {skill.name}
+              </span>
             </motion.div>
           ))}
         </motion.div>

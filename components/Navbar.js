@@ -54,9 +54,9 @@ const Navbar = () => {
           <Link href="/blog" className="hover:scale-20 hover:font-bold">
             Blog
           </Link>
-          <Link href="/contact" className="hover:scale-20 hover:font-bold">
+          {/* <Link href="/contact" className="hover:scale-20 hover:font-bold">
             Contact
-          </Link>
+          </Link> */}
           {/* <div className="flex items-center">
             <Button variant="outline" className="mx-1">
               Login
@@ -64,8 +64,9 @@ const Navbar = () => {
             <Button variant="outline" className="mx-1">
               Signup
             </Button>
-            <ModeToggle />
+            
           </div> */}
+          <ModeToggle />
         </div>
         <div className="md:hidden">
           <Sheet>
