@@ -57,7 +57,7 @@ const Page = async ({ params }) => {
 
   return (
     <div className="max-w-3xl mx-auto p-4">
-      <Image src={data.image} alt={data.title} width={500} height={500} />
+      <Image src={data.image} alt={data.title} width={400} height={100} />
       <h1 className="text-4xl font-bold mb-2">{data.title}</h1>
       <p className="text-gray-600 mb-4 text-base">
         &quot;{data.description}&quot;

@@ -14,6 +14,7 @@ import { Github, Linkedin, Twitter, Instagram, Download } from "lucide-react";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Skills } from "@/components/Skills";
 export default function Home() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -110,10 +111,9 @@ export default function Home() {
             duration: 1, // Animation duration in seconds
             ease: "easeOut", // Easing function for smooth transition
           }}
-          className="w-full flex"
+          className="w-full flex flex-col sm:flex-row"
         >
           <div className="w-full sm:w-1/2 flex flex-col ml-4 sm:ml-20">
-            <Link href="/about"></Link>
             <h1 className="text-xl font-bold mb-4">About Me</h1>
             <p className="w-full sm:w-2/3">
               <span className="text-orange-600">Namaste</span>, I&apos;m Niten
@@ -197,6 +197,7 @@ export default function Home() {
           </motion.div>
         </motion.section>
         {/* <TopBlogs /> */}
+        <Skills />
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
