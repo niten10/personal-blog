@@ -6,6 +6,7 @@ import { Github, Linkedin, Twitter, Instagram, Download } from "lucide-react";
 
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import ReactLogo from "../image/pp.png";
+import Contact from "@/components/Contact";
 export default function AboutPage() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -151,6 +152,7 @@ export default function AboutPage() {
           ))}
         </motion.div>
       </motion.section>
+      <Contact />
     </div>
   );
 }
