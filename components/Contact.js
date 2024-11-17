@@ -13,7 +13,7 @@ export default function Contact() {
     <div className="min-h-screen flex flex-col md:flex-row">
       <div className="w-full md:w-1/2 p-8 md:p-16 lg:p-24 flex flex-col justify-center">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-16">
-          Let's talk
+          Lets talk
         </h1>
 
         <div className="space-y-6 mb-16">
