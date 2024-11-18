@@ -3,12 +3,9 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Blogpp from "../app/image/pp.png";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { CardContent, Card } from "@/components/ui/card";
 import Link from "next/link";
 import PricingSection from "@/components/Pricing";
 import TopBlogs from "@/components/Topblogs";
-import Coverpp from "../app/image/fullcover-pp.jpg";
 import Typed from "typed.js";
 import { Github, Linkedin, Twitter, Instagram, Download } from "lucide-react";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
@@ -16,6 +13,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Skills } from "@/components/Skills";
 import { Subscribe } from "@/components/Subscribe";
+import { Mainintro } from "@/components/Mainintro";
+import { FloatingDocks } from "@/components/Animated/FloatingDocks";
 export default function Home() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -55,32 +54,42 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: ["Coder", "Designer", "Developer", "Video Editor"],
-      typeSpeed: 40,
-      backSpeed: 25,
-      loop: true,
-    });
-
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy();
-    };
+    if (el.current) {
+      // Ensure the element is available
+      const typed = new Typed(el.current, {
+        strings: ["Coder", "Designer", "Developer", "Video Editor"],
+        typeSpeed: 40,
+        backSpeed: 25,
+        loop: true,
+      });
+      return () => {
+        // Destroy Typed instance during cleanup to stop animation
+        typed.destroy();
+      };
+    }
   }, []);
 
+  const [maskPosition, setMaskPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMaskPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
   return (
     <div>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-32">
+        <section className="w-full h-96 py-12 md:py-24 lg:py-32 xl:py-32 flex justify-center items-center">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
+            <div className="flex flex-col items-center justify-center space-y-6 text-center">
+              <div className="space-y-4">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Niten Chhetri
                 </h1>
-                <p className="mx-auto max-w-[700px] text-orange-600 md:text-xl dark:text-orange-500S">
+                <p className="mx-auto max-w-[700px] text-orange-600 md:text-xl dark:text-orange-500">
                   Exploring ideas, sharing insights, and connecting with
                   readers.
                 </p>
@@ -88,59 +97,22 @@ export default function Home() {
                   <span ref={el}></span>
                 </h1>
               </div>
-              <div className="w-full max-w-sm space-y-2">
+              <div className="w-full max-w-sm">
                 <Image
                   src={Blogpp}
-                  width={400}
-                  height={400}
+                  width={200}
+                  height={200}
                   alt="Blog Author"
-                  className="rounded-full mx-auto md:w-200 md:h-200"
+                  className="rounded-full mx-auto"
                 />
               </div>
             </div>
           </div>
         </section>
+
         {/* <PricingSection /> */}
-
-        <motion.section
-          initial={{ opacity: 0, y: -200 }} // Start off-screen above
-          animate={{
-            opacity: scrollY > 100 ? 1 : 0, // Fade in when scrolled down
-            y: scrollY > 100 ? 0 : -100, // Move down when scrolled
-          }}
-          transition={{
-            duration: 1, // Animation duration in seconds
-            ease: "easeOut", // Easing function for smooth transition
-          }}
-          className="w-full flex flex-col sm:flex-row"
-        >
-          <div className="w-full sm:w-1/2 flex flex-col ml-4 sm:ml-20">
-            <h1 className="text-xl font-bold mb-4">About Me</h1>
-            <p className="w-full sm:w-2/3">
-              <span className="text-orange-600">Namaste</span>, I&apos;m Niten
-              Pandit Chhetri, an Information Management undergraduate with a
-              passion for web development and digital marketing. I&rsquo;ve
-              gained hands-on experience building projects like an eCommerce
-              website and a personal blog, focusing on creating seamless user
-              experiences with technologies like the MERN stack, React, and
-              Next.js. I&rsquo;m particularly interested in digital marketing
-              strategies such as SEO, content marketing, and social media
-              marketing.
-              <span className="bg-blue-500">
-                I believe combining web development with digital marketing can
-                create
-              </span>{" "}
-              engaging user-centered solutions that drive business growth.{" "}
-            </p>
-            <Link href="/about" className="underline hover:text-orange-600">
-              Learn More
-            </Link>
-          </div>
-          <div className="mt-4 sm:mt-0">
-            <Image src={Coverpp} width={400} height={500} alt="cover picture" />
-          </div>
-        </motion.section>
-
+        <FloatingDocks  />
+        <Mainintro />
         <motion.section
           className="container mx-auto px-4 py-16"
           initial="hidden"

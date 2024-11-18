@@ -14,7 +14,7 @@ import { ModeToggle } from "./Themebtn";
 import LoadingBar from "react-top-loading-bar";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 const Navbar = () => {
   const [progress, setprogress] = useState(0);
   const pathname = usePathname();
@@ -42,7 +42,9 @@ const Navbar = () => {
       />
       <div className="container mx-auto flex justify-between  items-center">
         <Link href="/">
-          <div className="text-lg font-bold">Niten Chhetri</div>
+          <div className="text-lg font-bold">
+            <Image src="/Asset7.png" alt="" height={30} width={80}></Image>
+          </div>
         </Link>
         <div className=" hidden md:flex space-x-4 items-center">
           <Link href="/" className="hover:scale-20 hover:font-bold">
